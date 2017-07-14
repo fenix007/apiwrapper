@@ -13,7 +13,8 @@ class TestCase extends \Orchestra\Testbench\TestCase
     use ArrayFunctions;
     use FileHttpTrait;
 
-    const CONFIG_DIRECTORY = '/../../../../src/config/';
+    protected $rootDir;
+    protected $resourcesDir;
 
     protected function getPackageProviders($app)
     {
@@ -43,7 +44,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [
             'api_key' => '',
-            'base_uri' => __DIR__ . '/Resources'
+            'base_uri' => $this->resourcesDir
         ];
     }
 
@@ -53,7 +54,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected function createRealConfig()
     {
-        return include $this->getFirstFileNameInPath(static::CONFIG_DIRECTORY);
+        return include $this->getFirstFileNameInPath(realpath($this->rootDir . '/src/config'));
     }
 
     protected function getFirstFileNameInPath(string $path) : string

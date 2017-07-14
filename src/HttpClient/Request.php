@@ -120,4 +120,13 @@ class Request
     {
         $this->parameters = $parameters;
     }
+
+    public static function createFromMethod(array $method, array $options = []) : Request
+    {
+        return new static(
+            $method['method'],
+            $method['path'],
+            $options
+        );
+    }
 }

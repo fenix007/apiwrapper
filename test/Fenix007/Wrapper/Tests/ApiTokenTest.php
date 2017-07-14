@@ -1,5 +1,6 @@
 <?php
-namespace Siqwell\Eagle\Tests;
+
+namespace Fenix007\Wrapper\Tests;
 
 class ApiTokenTest extends \PHPUnit_Framework_TestCase
 {
@@ -10,7 +11,7 @@ class ApiTokenTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetGet()
     {
-        $token  = new \Siqwell\Eagle\ApiToken();
+        $token  = new \Fenix007\Wrapper\ApiToken();
         $token->setToken(self::API_TOKEN);
 
         $this->assertEquals(self::API_TOKEN, $token->getToken());
@@ -23,7 +24,7 @@ class ApiTokenTest extends \PHPUnit_Framework_TestCase
      */
     public function testThrowsErrorOnEmptyApiToken()
     {
-        $token  = new \Siqwell\Eagle\ApiToken();
+        $token  = new \Fenix007\Wrapper\ApiToken();
         $token->setToken(null);
     }
 }

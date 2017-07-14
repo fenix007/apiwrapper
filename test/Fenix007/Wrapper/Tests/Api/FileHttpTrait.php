@@ -1,8 +1,8 @@
 <?php
 
-namespace Siqwell\Eagle\Tests\Api;
+namespace Fenix007\Wrapper\Tests\Api;
 
-use Siqwell\DataScreen\HttpClient\Request;
+use Fenix007\Wrapper\HttpClient\Request;
 
 trait FileHttpTrait
 {
@@ -12,7 +12,7 @@ trait FileHttpTrait
      * @param $path
      * @param  array   $parameters
      * @param  string  $method
-     * @return \Siqwell\DataScreen\HttpClient\Request
+     * @return \Fenix007\Wrapper\HttpClient\Request
      */
     protected function createRequest($method = 'GET', $path, array $parameters = []) : Request
     {

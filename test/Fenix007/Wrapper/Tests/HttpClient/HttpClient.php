@@ -1,11 +1,11 @@
 <?php
 
-namespace Siqwell\Eagle\Tests\HttpClient;
+namespace Fenix007\Wrapper\Tests\HttpClient;
 
 use Kevinrob\GuzzleCache\CacheMiddleware;
-use Siqwell\Eagle\HttpClient\Response;
+use Fenix007\Wrapper\HttpClient\Response;
 
-class HttpClient extends \Siqwell\Eagle\HttpClient\HttpClient
+class HttpClient extends \Fenix007\Wrapper\HttpClient\HttpClient
 {
     protected function getSecurityParamsToUri(): string
     {

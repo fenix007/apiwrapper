@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Siqwell\\Eagle\\": "src/"
+            "Fenix007\\Wrapper\\": "src/"
         }
     },
     "require-dev": {

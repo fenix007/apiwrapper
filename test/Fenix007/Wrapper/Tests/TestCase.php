@@ -1,14 +1,19 @@
 <?php
 
-namespace Siqwell\Eagle\Tests;
+namespace Fenix007\Wrapper\Tests;
 
+use Fenix007\Wrapper\Tests\Api\FileHttpTrait;
 use Orchestra\Database\ConsoleServiceProvider;
-use Siqwell\Eagle\ApiToken;
-use Siqwell\Eagle\Tests\HttpClient\HttpClient;
+use Fenix007\Wrapper\ApiToken;
+use Fenix007\Wrapper\Tests\HttpClient\HttpClient;
+use Symfony\Component\Finder\Finder;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
     use ArrayFunctions;
+    use FileHttpTrait;
+
+    const CONFIG_DIRECTORY = '/../../../../src/config/';
 
     protected function getPackageProviders($app)
     {
@@ -22,9 +27,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
         return new HttpClient($this->createApiToken(), $this->createFakeConfig());
     }
 
-    public function createRealHttpClient() : \Siqwell\Eagle\HttpClient\HttpClient
+    public function createRealHttpClient() : \Fenix007\Wrapper\HttpClient\HttpClient
     {
-        return new \Siqwell\Eagle\HttpClient\HttpClient($this->createApiToken(true), $this->createRealConfig());
+        return new \Fenix007\Wrapper\HttpClient\HttpClient($this->createApiToken(true), $this->createRealConfig());
     }
 
     protected function createApiToken($isReal = false) : ApiToken
@@ -42,10 +47,22 @@ class TestCase extends \Orchestra\Testbench\TestCase
         ];
     }
 
+    /**
+     *  get first file from config folder
+     * TODO: correct
+     */
     protected function createRealConfig()
     {
-        //TODO: fix no load config
-        return include __DIR__ . '/../../../../src/config/eagle.php';
+        return include $this->getFirstFileNameInPath(static::CONFIG_DIRECTORY);
+    }
+
+    protected function getFirstFileNameInPath(string $path) : string
+    {
+        $finder = new Finder();
+        $iterator = $finder->in($path)->getIterator();
+        $iterator->rewind();
+
+        return (string)$iterator->current();
     }
 
     public function assertEqualsExcept(array $one, array $two, array $fields)

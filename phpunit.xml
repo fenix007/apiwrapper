@@ -13,7 +13,7 @@
         >
     <testsuites>
         <testsuite name="php-tmdb-api Test Suite">
-            <directory>./test/Eagle/</directory>
+            <directory>./test/Fenix007/</directory>
         </testsuite>
     </testsuites>
 

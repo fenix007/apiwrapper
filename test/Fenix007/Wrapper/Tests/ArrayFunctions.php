@@ -1,6 +1,6 @@
 <?php
 
-namespace Siqwell\Eagle\Tests;
+namespace Fenix007\Wrapper\Tests;
 
 use Illuminate\Support\Arr;
 

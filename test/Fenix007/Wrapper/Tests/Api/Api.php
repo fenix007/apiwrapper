@@ -1,10 +1,10 @@
 <?php
 
-namespace Siqwell\Eagle\Tests\Api;
+namespace Fenix007\Wrapper\Tests\Api;
 
-use Siqwell\Eagle\Api\AbstractApi;
-use Siqwell\Eagle\HttpClient\Request;
-use Siqwell\Eagle\HttpClient\Response;
+use Fenix007\Wrapper\Api\AbstractApi;
+use Fenix007\Wrapper\HttpClient\Request;
+use Fenix007\Wrapper\HttpClient\Response;
 
 class Api extends AbstractApi
 {

@@ -1,0 +1,16 @@
+{
+  "time": "2017-06-28T17:30:26+03:00",
+  "version": "3.0",
+  "data": {
+    "albums": [
+      {
+        "id": 4090,
+        "name": "test",
+        "total_records": 1,
+        "color": 0
+      }
+    ]
+  },
+  "errors": [],
+  "status": 200
+}

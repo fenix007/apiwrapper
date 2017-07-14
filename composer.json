@@ -1,0 +1,29 @@
+{
+    "name": "fenix007/apiwrapper",
+    "description": "Laravel API wrapper",
+    "keywords": ["laravel", "wrapper", "api"],
+    "license": "proprietary",
+    "type": "library",
+    "authors": [
+        {
+            "name": "fenix007",
+            "email": "larafenix007@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^6.0",
+        "kevinrob/guzzle-cache-middleware": "^1.5",
+        "phlib/guzzle-middleware": "^1.0",
+        "illuminate/support": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Siqwell\\Eagle\\": "src/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.4.1",
+        "orchestra/database": "~3.1"
+    }
+}

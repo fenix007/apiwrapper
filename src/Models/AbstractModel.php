@@ -21,4 +21,9 @@ abstract class AbstractModel
     {
         self::$properties = array_keys(get_object_vars($this));
     }
+
+    public function toJson() : string
+    {
+        return \json_encode($this);
+    }
 }

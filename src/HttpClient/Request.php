@@ -2,6 +2,7 @@
 
 namespace Fenix007\Wrapper\HttpClient;
 
+use Fenix007\Wrapper\Models\AbstractModel;
 use Illuminate\Support\Str;
 
 /**
@@ -110,7 +111,9 @@ class Request
      */
     public function getParameters(): array
     {
-        return $this->parameters;
+        return $this->checkModelInParams() ?
+            [$this->toJson()] :
+            $this->parameters;
     }
 
     /**
@@ -128,5 +131,28 @@ class Request
             $method['path'],
             $options
         );
+    }
+
+    protected function checkModelInParams() : bool
+    {
+        return count(array_filter($this->parameters, function ($el) {
+            return $el instanceof AbstractModel;
+        }));
+    }
+
+    public function toJson() : string
+    {
+        if (!count($this->parameters)) {
+            return '';
+        }
+
+        $parameters = [];
+        foreach ($this->parameters as $parameter) {
+            $parameters []= $parameter instanceof AbstractModel ?
+                $parameter->toJson() :
+                $parameter;
+        }
+
+        return \json_encode($parameters);
     }
 }

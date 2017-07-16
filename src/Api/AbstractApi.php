@@ -84,4 +84,9 @@ abstract class AbstractApi
     {
         $this->client = $client;
     }
+
+    protected function createRequestFromMethod(array $method, array $options = []) : Request
+    {
+
+    }
 }

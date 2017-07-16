@@ -13,7 +13,7 @@ class TestCase extends \Fenix007\Wrapper\Tests\TestCase
     const DYNAMIC_FIELDS = [
     ];
 
-    /** @var  \Siqwell\DataScreen\Tests\Api\Api */
+    /** @var  Api */
     private $api;
 
     /**
@@ -22,16 +22,6 @@ class TestCase extends \Fenix007\Wrapper\Tests\TestCase
     public function __construct()
     {
         $this->api = new Api(new HttpClient(new ApiToken()), new Methods());
-    }
-
-    /**
-     * @param string|\Closure $mapper
-     *
-     * @return \Siqwell\DataScreen\Tests\Api\Api
-     */
-    public function setMapper($mapper)
-    {
-        return $this->api->setMapper($mapper);
     }
 
     public function setFakeApiClient()

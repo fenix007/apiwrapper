@@ -14,7 +14,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     use FileHttpTrait;
 
     protected $rootDir;
-    protected $resourcesDir;
+    protected $resourceDir;
 
     protected function getPackageProviders($app)
     {
@@ -44,7 +44,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [
             'api_key' => '',
-            'base_uri' => $this->resourcesDir
+            'base_uri' => $this->resourceDir
         ];
     }
 

@@ -100,4 +100,9 @@ abstract class AbstractHttpClient extends Client
     {
         return parent::__call(strtolower($name), $arguments);
     }
+
+    public function getApiToken() : string
+    {
+        return $this->apiToken->getToken();
+    }
 }

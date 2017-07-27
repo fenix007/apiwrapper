@@ -41,7 +41,10 @@ abstract class AbstractHttpClient extends Client
         $this->apiToken = $apiToken;
         $stack          = HandlerStack::create();
 
-        $stack->push($this->cacheMiddleware(), 'cache');
+        if ($config['options']['cache']['enabled']) {
+            $stack->push($this->cacheMiddleware(), 'cache');
+        }
+
         $stack->push($this->charsetMiddleware(), 'charset');
 
         $config = array_merge([
